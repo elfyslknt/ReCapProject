@@ -18,6 +18,10 @@ namespace Business.Concrete
         {
             _colorDal.Add(color);
         }
+        public Color GetById(int id)
+        {
+            return _colorDal.Get(c => c.ColorId == id);
+        }
 
         public void Delete(Color color)
         {

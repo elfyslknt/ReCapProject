@@ -10,5 +10,6 @@ namespace Business.Abstract
         List<Color> GetAll();
         void Add(Color color);
         void Delete(Color color);
+        Color GetById(int id);
     }
 }
