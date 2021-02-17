@@ -10,34 +10,79 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            CarManager carManager = new CarManager(new EfCarDal());
+            //Car();
+            //Brand();
+            //User();
+            //Customer();
+
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+
+
+
+            Rental rental1 = new Rental() { CarId = 4, CustomerId = 3 , RentDate=new DateTime(2021, 02, 18) };
+
+            var result = rentalManager.Add(rental1);
+            Console.WriteLine(result.Message);
+        }
+
+        private static void Customer()
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            Customer customer1 = new Customer() { UserId = 3, CompanyName = "Kartal Yapı" };
+
+            var result = customerManager.Add(customer1);
+            Console.WriteLine(result.Message);
+        }
+
+        private static void User()
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+            User user1 = new User() { UserFirstName = "Bahar", UserLastName = "Yağmur", UserEmail = "baharbahar@gmail.com", UserPassword = "12345" };
+
+            var result = userManager.Add(user1);
+            Console.WriteLine(result.Message);
+        }
+
+        private static void Brand()
+        {
             BrandManager brandManager = new BrandManager(new EfBrandDal());
 
-            //Car car1 = new Car() { CarId = 6, BrandId = 1, ColorId = 1, DailyPrice = 450, Description = "225 km kadar hıza ulaşabilir.", ModelYear = 2018, CarName= "Mercedes c180" };
 
-            //carManager.Add(car1);
-
-            //Brand brand1 = new Brand() { BrandId = 8, BrandName = "Honda" };
+            //Brand brand1 = new Brand() { BrandId = 9, BrandName = "Ford" };
 
             //brandManager.Add(brand1);
 
 
 
-            //foreach (var brand in brandManager.GetAll())
-            //{
-            //    Console.WriteLine(brand.BrandName);
-            //}
-
-            // Car cardel = new Car() { CarId = 5 }; 
-
-            //carManager.Delete(cardel);
-
-
-            //CarName, BrandName, ColorName, DailyPrice
-            foreach (var car in carManager.GetCarDetails())
+            foreach (var brand in brandManager.GetAll().Data)
             {
-                Console.WriteLine(car.CarName +"  "+car.BrandName +"  "+car.ColorName+"  "+car.DailyPrice);
+                Console.WriteLine(brand.BrandName);
             }
+        }
+
+        private static void Car()
+        {
+            CarManager carManager = new CarManager(new EfCarDal());
+
+            var result = carManager.GetCarDetails();
+
+            if (result.Success)
+            {
+                foreach (var car in result.Data)
+                {
+                    Console.WriteLine(car.CarName + "  " + car.BrandName + "  " + car.ColorName + "  " + car.DailyPrice);
+                }
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+
+            //Car car1 = new Car() { CarId = 8, BrandId = 5, ColorId = 3, DailyPrice = 500, Description = "Güvenlikli sürüş keyfi", ModelYear = 2020, CarName = "Volvo s60" };
+
+            //Console.WriteLine(carManager.Add(car1).Message);
+
+
 
             //carManager.Delete(new Car { CarId=2});
 
@@ -47,11 +92,6 @@ namespace ConsoleUI
             //{
             //    Console.WriteLine(car.CarId);
             //}
-
-
-
-
-
         }
     }
 }
