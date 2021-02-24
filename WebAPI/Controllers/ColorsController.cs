@@ -1,6 +1,4 @@
 ﻿using Business.Abstract;
-using Business.Concrete;
-using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,40 +11,42 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CarsController : ControllerBase
+    public class ColorsController : ControllerBase
     {
-        ICarService _carService;
 
-        public CarsController(ICarService carService)
+        IColorService _colorService;
+
+        public ColorsController(IColorService colorService)
         {
-            _carService = carService;
+            _colorService = colorService;
         }
 
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var result=_carService.GetAll();
-            if(result.Success)
+            var result = _colorService.GetAll();
+            if (result.Success)
             {
                 return Ok(result);
             }
-            return BadRequest(result.Message) ;
+            return BadRequest(result.Message);
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Car car)
+        public IActionResult Add(Color color)
         {
-            var result = _carService.Add(car);
+            var result = _colorService.Add(color);
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
         }
+
         [HttpPost("delete")]
-        public IActionResult Delete(Car car)
+        public IActionResult Delete(Color color)
         {
-            var result = _carService.Delete(car);
+            var result = _colorService.Delete(color);
             if (result.Success)
             {
                 return Ok(result);
