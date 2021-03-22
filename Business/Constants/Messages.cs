@@ -19,5 +19,9 @@ namespace Business.Constants
         public static string RentalAdded = "Kiralama işlemi yapıldı";
         public static string RentalDeleted = "Kiralama silindi";
         public static string RentalRentDateInvalid = "Kiralama tarihi geçersiz";
+
+        public static string CarImageAdded = "Araba resmi eklendi";
+
+        public static string CarImageLimitExceeded ="Resim ekleme limiti doldu";
     }
 }
