@@ -11,6 +11,8 @@ namespace Business.Constants
         public static string CarDeleted = "Araba silindi";
         public static string CarDailyPriceInvalid = "Günlük fiyat değeri geçersiz";
         public static string CarAdded = "Araba eklendi";
+        public static string CarUpdated = "Araba güncellendi";
+
         public static string BrandNameInvalid = "Marka ismi geçersiz";
         public static string BrandAdded = "Marka eklendi";
         public static string ColorAdded = "Renk eklendi";
@@ -18,6 +20,7 @@ namespace Business.Constants
         public static string UserDeleted = "Kullanıcı silindi";
         public static string CustomerAdded = "Müşteri eklendi";
         public static string CustomerDeleted = "Müşteri silindi";
+
         public static string RentalAdded = "Kiralama işlemi yapıldı";
         public static string RentalDeleted = "Kiralama silindi";
         public static string RentalRentDateInvalid = "Kiralama tarihi geçersiz";
@@ -34,5 +37,7 @@ namespace Business.Constants
 
         public static string UserAlreadyExists = "Kullanıcı mevcut";
         public static string AccessTokenCreated = "Token oluşturuldu";
+
+
     }
 }
