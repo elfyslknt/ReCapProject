@@ -34,14 +34,14 @@ namespace ConsoleUI
             Console.WriteLine(result.Message);
         }
 
-        private static void User()
-        {
-            UserManager userManager = new UserManager(new EfUserDal());
-            User user1 = new User() { UserFirstName = "Bahar", UserLastName = "Yağmur", UserEmail = "baharbahar@gmail.com", UserPassword = "12345" };
+        //private static void User()
+        //{
+        //    UserManager userManager = new UserManager(new EfUserDal());
+        //    User user1 = new User() { UserFirstName = "Bahar", UserLastName = "Yağmur", UserEmail = "baharbahar@gmail.com", UserPassword = "12345" };
 
-            var result = userManager.Add(user1);
-            Console.WriteLine(result.Message);
-        }
+        //    var result = userManager.Add(user1);
+        //    Console.WriteLine(result.Message);
+        //}
 
         private static void Brand()
         {
