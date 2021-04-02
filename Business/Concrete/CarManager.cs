@@ -34,6 +34,11 @@ namespace Business.Concrete
 
         }
 
+        public IResult AddTransactionalTest(Car car)
+        {
+            throw new NotImplementedException();
+        }
+
         [CacheRemoveAspect("ICarService.Get")]
         public IResult Delete(Car car)
         {
